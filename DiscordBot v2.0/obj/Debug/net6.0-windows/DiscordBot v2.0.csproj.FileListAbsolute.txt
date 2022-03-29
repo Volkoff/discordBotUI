@@ -1,0 +1,53 @@
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot v2.0.csproj.AssemblyReference.cache
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot_v2._0.Form1.resources
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot v2.0.csproj.GenerateResource.cache
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot v2.0.GeneratedMSBuildEditorConfig.editorconfig
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot v2.0.AssemblyInfoInputs.cache
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot v2.0.AssemblyInfo.cs
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot v2.0.csproj.CoreCompileInputs.cache
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\DiscordBot v2.0.exe
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\DiscordBot v2.0.deps.json
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\DiscordBot v2.0.runtimeconfig.json
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\DiscordBot v2.0.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\DiscordBot v2.0.pdb
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Discord.Net.Commands.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Discord.Net.Core.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Discord.Net.Interactions.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Discord.Net.Rest.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Discord.Net.Webhook.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Discord.Net.WebSocket.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Google.Apis.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Google.Apis.Auth.PlatformServices.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Google.Apis.Auth.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Google.Apis.Core.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Google.Apis.Gmail.v1.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Google.Apis.YouTube.v3.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\SpotifyAPI.Web.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\System.Interactive.Async.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\System.Linq.Async.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\System.Reactive.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Telegram.Bot.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.Api.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.Api.Core.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.Api.Core.Enums.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.Api.Core.Interfaces.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.Api.Core.Models.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.Api.Helix.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.Api.Helix.Models.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.Api.V5.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.Api.V5.Models.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.Client.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.Client.Enums.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.Client.Models.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.Communication.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\TwitchLib.PubSub.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot v2.0.csproj.CopyComplete
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot v2.0.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\refint\DiscordBot v2.0.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot v2.0.pdb
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot v2.0.genruntimeconfig.cache
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\ref\DiscordBot v2.0.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot_v2._0.Properties.Resources.resources
