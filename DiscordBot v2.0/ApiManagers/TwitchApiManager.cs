@@ -15,26 +15,18 @@ namespace DiscordBot_v2._0
 {
     internal class TwitchApiManager
     {
-        private static TwitchApiManager _instance;
-        /// <summary>
-        /// setting up a TwitchApiManager instance which will be used in order to connect to the api
-        /// </summary>
-        public static TwitchApiManager Instance 
-        { 
-            get 
-            { 
-                return _instance ?? (_instance = new TwitchApiManager()); 
-            } 
-        }
+        
         private static TwitchAPI api;
         /// <summary>
         /// setting up the keys
         /// </summary>
-        public TwitchApiManager()
+        public TwitchApiManager(string clientID, string accessToken)
         {
             api = new TwitchAPI();
-            api.Settings.ClientId = "9m35m8qnrnhe96ht4sdvvmkpfxdldb";
-            api.Settings.AccessToken = "irij91q7okoknfh53dw0m88oyfyq1y";
+            api.Settings.ClientId = clientID;
+            api.Settings.AccessToken = accessToken;
+            //api.Settings.ClientId = "9m35m8qnrnhe96ht4sdvvmkpfxdldb";
+            //api.Settings.AccessToken = "irij91q7okoknfh53dw0m88oyfyq1y";
         }
         /// <summary>
         /// Getting user followers 

@@ -26,15 +26,16 @@ namespace DiscordBot_v2._0
         }
 
         private DiscordSocketClient _client;
-
+        UIDataUserInput _data;
         //logging into program
         private Task Log(LogMessage msg)
         {
             Console.WriteLine(msg.ToString());
             return Task.CompletedTask;
         }
-        public async Task MainAsync()
+        public async Task MainAsync(UIDataUserInput uIData)
         {
+            _data = uIData;
             _client = new DiscordSocketClient();
             _client.MessageReceived += commandHand;
             _client.Log += Log;
@@ -51,6 +52,7 @@ namespace DiscordBot_v2._0
                 return;
             }
             TelegramApiManager telegram = new TelegramApiManager();
+            
             var emojiConfirmed = new Emoji("✔️");
             await telegram.BotHandler(message.Author + ": " + message.Content);
             string[] commands = message.Content.Split(" ");
@@ -60,7 +62,7 @@ namespace DiscordBot_v2._0
                 .ToLower();
             Command command = null;
             YouTubeApiManager youtube = new YouTubeApiManager();
-            TwitchApiManager twitch = new TwitchApiManager();
+            TwitchApiManager twitch = new TwitchApiManager(_data.TwitchClientID,_data.TwitchAccessToken);
             SpotifyApiManager spotify = new SpotifyApiManager();
 
 

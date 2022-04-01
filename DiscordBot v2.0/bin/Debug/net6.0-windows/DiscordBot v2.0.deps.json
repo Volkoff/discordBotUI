@@ -11,6 +11,7 @@
           "Discord.Net": "3.4.1",
           "Google.Apis.Gmail.v1": "1.57.0.2622",
           "Google.Apis.YouTube.v3": "1.56.0.2630",
+          "Newtonsoft.Json": "13.0.1",
           "SpotifyAPI.Web": "6.2.2",
           "Telegram.Bot": "17.0.0",
           "TwitchLib": "3.3.0"

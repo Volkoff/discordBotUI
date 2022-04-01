@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
 
 namespace DiscordBot_v2._0
 {
-    public class XMLWriter
+    internal struct UIDataUserInput
     {
-        
+        public string TwitchClientID;
+        public string TwitchAccessToken;
     }
 }

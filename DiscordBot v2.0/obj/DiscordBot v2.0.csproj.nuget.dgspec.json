@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[1.56.0.2630, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "SpotifyAPI.Web": {
               "target": "Package",
               "version": "[6.2.2, )"
