@@ -28,7 +28,8 @@ namespace DiscordBot_v2._0
         /// <returns></returns>
         public override async Task MessageReply(SocketMessage message)
         {
-            var channelDetails = await YouTubeApiManager.FindChannelInfo(channelID);
+            UIDataUserInputYouTube uIDataUserInputYouTube = new UIDataUserInputYouTube();
+            var channelDetails = await YouTubeApiManager.FindChannelInfo(channelID,uIDataUserInputYouTube.YouTubeApiKey);
             await message.Channel.SendMessageAsync($"Subscribers: {channelDetails.Statistics.SubscriberCount} \n " +
                 $"Vide count: {channelDetails.Statistics.VideoCount} videos on record \n " +
                 $"Total views: {channelDetails.Statistics.ViewCount} \n " +

@@ -10,6 +10,7 @@ using Google.Apis.Upload;
 using Google.Apis.Util.Store;
 using Google.Apis.YouTube.v3;
 using Google.Apis.YouTube.v3.Data;
+using Discord;
 
 namespace DiscordBot_v2._0
 {
@@ -32,12 +33,12 @@ namespace DiscordBot_v2._0
         /// </summary>
         /// <param name="region">region which is alpha1-2 from the region_codes.csv</param>
         /// <returns></returns>
-        public async Task<IList<Video>> FindingTopPopular( string region)
+        public async Task<IList<Video>> FindingTopPopular(string region,string apiKey)
         {
 
             var service = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyBgNlxqFo2N3MizsKNJmD1VQhICHPcF0CM"
+                ApiKey = apiKey
             });
 
             var request = service.Videos.List("snippet");
@@ -68,12 +69,13 @@ namespace DiscordBot_v2._0
         /// </summary>
         /// <param name="videoID">Video id, made from video link</param>
         /// <returns></returns>
-        public async Task<YouTubeVideoDetails> FindDetailsOfVideo(string videoID)
+        public async Task<YouTubeVideoDetails> FindDetailsOfVideo(string videoID, string apiKey)
         {
             var service = new YouTubeService(new BaseClientService.Initializer()
             {
                 ApiKey = "AIzaSyBgNlxqFo2N3MizsKNJmD1VQhICHPcF0CM"
-            });
+                
+            }); ;
 
             var request = service.Videos.List("snippet");
             var requestStats = service.Videos.List("statistics");
@@ -101,7 +103,7 @@ namespace DiscordBot_v2._0
         /// </summary>
         /// <param name="channelUserName">channel username</param>
         /// <returns></returns>
-        public async Task<Channel> FindChannelInfo(string channelUserName)
+        public async Task<Channel> FindChannelInfo(string channelUserName, string apiKey)
         {
             var service = new YouTubeService(new BaseClientService.Initializer() //setting up an API key for youtube 
             {
@@ -113,7 +115,7 @@ namespace DiscordBot_v2._0
             var request = service.Channels.List(parts); //making a request
             var searchRequest = service.Search.List(channelUserName);
             var searchListResponse = await searchRequest.ExecuteAsync(); //getting a response 
-            foreach(var searchResult in searchListResponse.Items)
+            foreach (var searchResult in searchListResponse.Items)
             {
                 switch (searchResult.Id.Kind)
                 {
@@ -122,7 +124,7 @@ namespace DiscordBot_v2._0
                         break;
                 }
             }
-            
+
             request.Id = channelUserName;
             var response = await request.ExecuteAsync();
             var channelDetails = response.Items.FirstOrDefault();

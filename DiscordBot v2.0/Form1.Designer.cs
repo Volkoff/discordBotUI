@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.TxtTwitchClientID = new System.Windows.Forms.TextBox();
-            this.TwitchApiKey = new System.Windows.Forms.TextBox();
+            this.TxtYouTubeApiKey = new System.Windows.Forms.TextBox();
             this.DiscordToken = new System.Windows.Forms.TextBox();
             this.EndButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -59,13 +59,13 @@
             this.TxtTwitchClientID.TabIndex = 1;
             this.TxtTwitchClientID.Text = "Twitch Client ID";
             // 
-            // TwitchApiKey
+            // TxtYouTubeApiKey
             // 
-            this.TwitchApiKey.Location = new System.Drawing.Point(12, 81);
-            this.TwitchApiKey.Name = "TwitchApiKey";
-            this.TwitchApiKey.Size = new System.Drawing.Size(499, 23);
-            this.TwitchApiKey.TabIndex = 2;
-            this.TwitchApiKey.Text = "Input api key here";
+            this.TxtYouTubeApiKey.Location = new System.Drawing.Point(12, 81);
+            this.TxtYouTubeApiKey.Name = "TxtYouTubeApiKey";
+            this.TxtYouTubeApiKey.Size = new System.Drawing.Size(194, 23);
+            this.TxtYouTubeApiKey.TabIndex = 2;
+            this.TxtYouTubeApiKey.Text = "Insert YouTubeAPI key";
             // 
             // DiscordToken
             // 
@@ -134,7 +134,7 @@
             this.Controls.Add(this.EndButton);
             this.Controls.Add(this.SaveKeysButton);
             this.Controls.Add(this.DiscordToken);
-            this.Controls.Add(this.TwitchApiKey);
+            this.Controls.Add(this.TxtYouTubeApiKey);
             this.Controls.Add(this.TxtTwitchClientID);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -150,7 +150,7 @@
 
         private Button button1;
         private TextBox TxtTwitchClientID;
-        private TextBox TwitchApiKey;
+        private TextBox TxtYouTubeApiKey;
         private TextBox DiscordToken;
         private Button EndButton;
         private PictureBox pictureBox1;

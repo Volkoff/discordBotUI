@@ -9,6 +9,7 @@ namespace DiscordBot_v2._0
             InitializeComponent();
         }
         static UIDataUserInput uiData = new UIDataUserInput();
+        static UIDataUserInputYouTube uiDataYouTube = new UIDataUserInputYouTube();
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -23,11 +24,11 @@ namespace DiscordBot_v2._0
             if (wasUploaded)
             {
                 UpdateUiDataFromImport();
-                new Program().MainAsync(uiData);
+                new Program().MainAsync(uiData,uiDataYouTube);
             }
             else
             {
-                new Program().MainAsync(uiData);
+                new Program().MainAsync(uiData,uiDataYouTube);
             }
             
         }
@@ -47,6 +48,7 @@ namespace DiscordBot_v2._0
         {
             uiData.TwitchClientID = TxtTwitchClientID.Text;
             uiData.TwitchAccessToken = TxtTwitchAccessToken.Text;
+            uiDataYouTube.YouTubeApiKey = TxtYouTubeApiKey.Text;
         }
         public void UpdateUiDataFromImport()
         {
@@ -64,5 +66,6 @@ namespace DiscordBot_v2._0
         {
             Application.Exit();
         }
+
     }
 }

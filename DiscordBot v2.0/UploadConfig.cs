@@ -47,5 +47,10 @@ namespace DiscordBot_v2._0
         {
             this.Hide();
         }
+
+        private void UploadYouTube_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

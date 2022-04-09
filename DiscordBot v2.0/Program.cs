@@ -27,15 +27,17 @@ namespace DiscordBot_v2._0
 
         private DiscordSocketClient _client;
         UIDataUserInput _data;
+        UIDataUserInputYouTube _dataYouTube;
         //logging into program
         private Task Log(LogMessage msg)
         {
             Console.WriteLine(msg.ToString());
             return Task.CompletedTask;
         }
-        public async Task MainAsync(UIDataUserInput uIData)
+        public async Task MainAsync(UIDataUserInput uIData,UIDataUserInputYouTube uiDataYoutube)
         {
             _data = uIData;
+            _dataYouTube = uiDataYoutube;
             _client = new DiscordSocketClient();
             _client.MessageReceived += commandHand;
             _client.Log += Log;
@@ -95,7 +97,7 @@ namespace DiscordBot_v2._0
                     {
                         await message.AddReactionAsync(emojiConfirmed);
                         string[] link = commands[1].Split("=");
-                        command = new VideoDetailsCommand(youtube, link[1]);
+                        command = new VideoDetailsCommand(youtube, link[1],"bl");
                     }
                     catch (IndexOutOfRangeException ex)
                     {

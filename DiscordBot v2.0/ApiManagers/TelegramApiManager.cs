@@ -43,5 +43,26 @@ namespace DiscordBot_v2._0
                 text: message,
                 cancellationToken: cancellationToken);
         }
+
+         async Task ReceiveMessage(ITelegramBotClient botClient, CancellationToken cancellationToken, Update update)
+        {
+            // Only process Message updates: https://core.telegram.org/bots/api#message
+            if (update.Type != UpdateType.Message)
+                return;
+            // Only process text messages
+            if (update.Message!.Type != MessageType.Text)
+                return;
+
+            var chatId = update.Message.Chat.Id;
+            var messageText = update.Message.Text;
+
+            Console.WriteLine($"Received a '{messageText}' message in chat {chatId}.");
+
+            // Echo received message text
+            Telegram.Bot.Types.Message sentMessage = await botClient.SendTextMessageAsync(
+                chatId: 1055912231,
+                text: "You said:\n" + messageText,
+                cancellationToken: cancellationToken);
+        }
     }
-}
+    }
