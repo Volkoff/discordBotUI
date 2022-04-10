@@ -9,7 +9,7 @@ namespace DiscordBot_v2._0
 {
     internal class YtPopsCommand : Command
     {
-        UIDataUserInputYouTube inputYouTube;
+        UIDataUserInput inputYouTube;
         private YouTubeApiManager youtubeApiManager;
         private string region;
         /// <summary>

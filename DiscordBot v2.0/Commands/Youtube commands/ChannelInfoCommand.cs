@@ -10,7 +10,7 @@ namespace DiscordBot_v2._0
     {
         private YouTubeApiManager YouTubeApiManager; //youtubeapi manager instance
         private string channelID;
-        static UIDataUserInputYouTube uidataYT;
+        static UIDataUserInput uidataYT;
         private string apiKey = uidataYT.YouTubeApiKey;
         /// <summary>
         /// Creates a constructor
@@ -31,7 +31,6 @@ namespace DiscordBot_v2._0
         /// <returns></returns>
         public override async Task MessageReply(SocketMessage message)
         {
-            UIDataUserInputYouTube uIDataUserInputYouTube = new UIDataUserInputYouTube();
             var details = await YouTubeApiManager.FindChannelInfo(channelID, apiKey);
             await message.Channel.SendMessageAsync($"Subscribers: {details.Subscribers} \n " +
                 $"Vide count: {details.VideoCount} videos on record \n " +

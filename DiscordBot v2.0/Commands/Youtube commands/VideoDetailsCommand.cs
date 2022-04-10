@@ -10,7 +10,7 @@ namespace DiscordBot_v2._0
     {
         private YouTubeApiManager youtubeApiManager;
         private string videoId;
-        static UIDataUserInputYouTube uidataYT;
+        static UIDataUserInput uidataYT;
         private string apiKey = uidataYT.YouTubeApiKey;
         /// <summary>
         /// Constructor
