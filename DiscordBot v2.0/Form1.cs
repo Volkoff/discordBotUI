@@ -10,6 +10,7 @@ namespace DiscordBot_v2._0
         }
         static UIDataUserInput uiData = new UIDataUserInput();
         static UIDataUserInputYouTube uiDataYouTube = new UIDataUserInputYouTube();
+        TelegramApiManager telegram = new TelegramApiManager();
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -21,6 +22,9 @@ namespace DiscordBot_v2._0
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            
+            telegram.BotHandler("Bot has been started");
+
             if (wasUploaded)
             {
                 UpdateUiDataFromImport();
@@ -64,6 +68,8 @@ namespace DiscordBot_v2._0
 
         private void EndButton_Click(object sender, EventArgs e)
         {
+            telegram.BotHandler("Shutting down \n" +
+                "Closing application");
             Application.Exit();
         }
 

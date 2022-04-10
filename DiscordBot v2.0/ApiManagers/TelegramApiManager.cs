@@ -23,7 +23,7 @@ namespace DiscordBot_v2._0
         public async Task BotHandler(string message)
         {
             var botClient = new TelegramBotClient("5251072349:AAGdcgDDwPncF86wNI4nbrwvlAAfQ20ZXks");
-
+           
             using var cts = new CancellationTokenSource();
             await SendMessage(botClient, cts.Token, message);
             var me = await botClient.GetMeAsync();

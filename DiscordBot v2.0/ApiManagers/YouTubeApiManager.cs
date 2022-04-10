@@ -17,6 +17,15 @@ namespace DiscordBot_v2._0
     /// <summary>
     /// class that helps YouTube video details in outputting
     /// </summary>
+
+    internal class YouTubeChannelDetails 
+    {
+        public ulong? Subscribers { get; set; }
+        public ulong? VideoCount { get; set; }
+        public ulong? Views { get; set; }
+        public string Details { get; set; }
+    }
+
     internal class YouTubeVideoDetails
     {
         public string VideoId { get; set; }
@@ -38,7 +47,7 @@ namespace DiscordBot_v2._0
 
             var service = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = apiKey
+                ApiKey = "AIzaSyBgNlxqFo2N3MizsKNJmD1VQhICHPcF0CM"
             });
 
             var request = service.Videos.List("snippet");
@@ -103,32 +112,30 @@ namespace DiscordBot_v2._0
         /// </summary>
         /// <param name="channelUserName">channel username</param>
         /// <returns></returns>
-        public async Task<Channel> FindChannelInfo(string channelUserName, string apiKey)
+        public async Task<YouTubeChannelDetails> FindChannelInfo(string channelUserName, string apiKey)
         {
             var service = new YouTubeService(new BaseClientService.Initializer() //setting up an API key for youtube 
             {
                 ApiKey = "AIzaSyBgNlxqFo2N3MizsKNJmD1VQhICHPcF0CM"
             });
-            List<String> parts = new List<String>();
-            parts.Add("statistics");
-            parts.Add("brandingSettings");
-            var request = service.Channels.List(parts); //making a request
-            var searchRequest = service.Search.List(channelUserName);
-            var searchListResponse = await searchRequest.ExecuteAsync(); //getting a response 
-            foreach (var searchResult in searchListResponse.Items)
-            {
-                switch (searchResult.Id.Kind)
-                {
-                    case "youtube#channel":
-                        channelUserName = searchResult.Id.ChannelId;
-                        break;
-                }
-            }
-
+            var request = service.Channels.List("statistics");
+            var requestSnippet = service.Channels.List("brandingSettings");
+            requestSnippet.Id = channelUserName;
             request.Id = channelUserName;
+            var responseSnippet = await requestSnippet.ExecuteAsync();
             var response = await request.ExecuteAsync();
-            var channelDetails = response.Items.FirstOrDefault();
+            var details = response.Items.FirstOrDefault();
+            var detailsSnippet = responseSnippet.Items.FirstOrDefault();
+            YouTubeChannelDetails channelDetails = new YouTubeChannelDetails()
+            {
+                Subscribers = details.Statistics.SubscriberCount,
+                VideoCount = details.Statistics.VideoCount,
+                Views = details.Statistics.ViewCount,
+                Details = detailsSnippet.BrandingSettings.Channel.Description
+            };
+
             return channelDetails;
+            
         }
 
     }

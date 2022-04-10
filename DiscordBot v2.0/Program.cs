@@ -113,7 +113,7 @@ namespace DiscordBot_v2._0
                     {
                         await message.AddReactionAsync(emojiConfirmed);
                         string[] channelLink = commands[1].Split('/');
-                        command = new ChannelInfoCommand(youtube, channelLink[4]);
+                        command = new ChannelInfoCommand(youtube, channelLink[4],"s");
                     }
                     catch (IndexOutOfRangeException ex)
                     {

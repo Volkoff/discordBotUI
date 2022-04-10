@@ -10,16 +10,19 @@ namespace DiscordBot_v2._0
     {
         private YouTubeApiManager YouTubeApiManager; //youtubeapi manager instance
         private string channelID;
-
+        static UIDataUserInputYouTube uidataYT;
+        private string apiKey = uidataYT.YouTubeApiKey;
         /// <summary>
         /// Creates a constructor
         /// </summary>
         /// <param name="tubeApiManager">YouTube api manager</param>
         /// <param name="channelId">Channel id that will automatically parse from channel link</param>
-        public ChannelInfoCommand(YouTubeApiManager tubeApiManager, string channelId)
+        public ChannelInfoCommand(YouTubeApiManager tubeApiManager, string channelId,string apiKey)
         {
             YouTubeApiManager = tubeApiManager;
             channelID = channelId;
+            this.apiKey = apiKey; 
+
         }
         /// <summary>
         /// Inherited from Command, sends message to a channel where the command was input, outputs youtube channel information
@@ -29,11 +32,12 @@ namespace DiscordBot_v2._0
         public override async Task MessageReply(SocketMessage message)
         {
             UIDataUserInputYouTube uIDataUserInputYouTube = new UIDataUserInputYouTube();
-            var channelDetails = await YouTubeApiManager.FindChannelInfo(channelID,uIDataUserInputYouTube.YouTubeApiKey);
-            await message.Channel.SendMessageAsync($"Subscribers: {channelDetails.Statistics.SubscriberCount} \n " +
-                $"Vide count: {channelDetails.Statistics.VideoCount} videos on record \n " +
-                $"Total views: {channelDetails.Statistics.ViewCount} \n " +
-                $"Description: {channelDetails.BrandingSettings.Channel.Description}");
+            var details = await YouTubeApiManager.FindChannelInfo(channelID, apiKey);
+            await message.Channel.SendMessageAsync($"Subscribers: {details.Subscribers} \n " +
+                $"Vide count: {details.VideoCount} videos on record \n " +
+                $"Total views: {details.Views} \n " +
+                $"Description: {details.Details}");
         }
+        
     }
 }
