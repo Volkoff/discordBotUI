@@ -33,11 +33,11 @@ namespace DiscordBot_v2._0
             Console.WriteLine(msg.ToString());
             return Task.CompletedTask;
         }
-        public async Task MainAsync(UIDataUserInput uIData)
+        public async Task MainAsync(UIDataUserInput uIData,TelegramApiManager telegramApiManager, DiscordApiManager discordApiManager)
         {
             _data = uIData;
             _client = new DiscordSocketClient();
-            _client.MessageReceived += new DiscordCommandHandler(_data).HandleCommand;
+            _client.MessageReceived += new DiscordCommandHandler(_data,telegramApiManager,discordApiManager).HandleCommand;
             _client.Log += Log;
             var token = File.ReadAllText("token.txt");
             await _client.LoginAsync(TokenType.Bot, token);

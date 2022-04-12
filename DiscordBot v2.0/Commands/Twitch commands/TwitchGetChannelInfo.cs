@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DiscordBot_v2._0
 {
-    internal class TwitchGetChannelInfo : Command
+    internal class TwitchGetChannelInfo : DiscordCommand
     {
         private TwitchApiManager twitchApiManager;
         private List<string> usernames;

@@ -6,22 +6,19 @@ using System.Threading.Tasks;
 
 namespace DiscordBot_v2._0
 {
-    internal class VideoDetailsCommand : Command
+    internal class VideoDetailsCommand : DiscordCommand
     {
         private YouTubeApiManager youtubeApiManager;
         private string videoId;
-        static UIDataUserInput uidataYT;
-        private string apiKey = uidataYT.YouTubeApiKey;
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="youTubeApi">Youtube api instance</param>
         /// <param name="videoId">Video id made from the link</param>
-        public VideoDetailsCommand(YouTubeApiManager youTubeApi,string videoId, string apiKey)
+        public VideoDetailsCommand(YouTubeApiManager youTubeApi,string videoId)
         {
             youtubeApiManager = youTubeApi;
             this.videoId = videoId;
-            this.apiKey = apiKey;
         }
         /// <summary>
         /// Returns video content details 
@@ -30,7 +27,7 @@ namespace DiscordBot_v2._0
         /// <returns></returns>
         public override async Task MessageReply(SocketMessage message)
         {
-            var videoDetails = await youtubeApiManager.FindDetailsOfVideo(videoId,apiKey);
+            var videoDetails = await youtubeApiManager.FindDetailsOfVideo(videoId);
             await message.Channel.SendMessageAsync($"Title: {videoDetails.Title} \n " +
                 $"Description: {videoDetails.Description} \n " +
                 $"Channel: {videoDetails.ChannelTitle} \n " +

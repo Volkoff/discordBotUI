@@ -4,7 +4,7 @@ using Discord.WebSocket;
 
 namespace DiscordBot_v2._0
 {
-    internal class HelpCommand : Command
+    internal class HelpCommand : DiscordCommand
     {
         /// <summary>
         /// Sends a helping message to a channel where was the command called

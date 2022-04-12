@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DiscordBot_v2._0
 {
-    internal class FindSongOnSpotifyCommand : Command
+    internal class FindSongOnSpotifyCommand : DiscordCommand
     {
         private SpotifyApiManager spotifyApiManager;
         private string nameOfSong;

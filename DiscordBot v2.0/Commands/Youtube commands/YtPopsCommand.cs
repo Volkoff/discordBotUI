@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace DiscordBot_v2._0
 {
-    internal class YtPopsCommand : Command
+    internal class YtPopsCommand : DiscordCommand
     {
-        UIDataUserInput inputYouTube;
         private YouTubeApiManager youtubeApiManager;
         private string region;
         /// <summary>
@@ -30,7 +29,7 @@ namespace DiscordBot_v2._0
         /// <returns></returns>
         public override async Task MessageReply(SocketMessage message)
         {
-            IList<Video> videos = await youtubeApiManager.FindingTopPopular(region,inputYouTube.YouTubeApiKey);
+            IList<Video> videos = await youtubeApiManager.FindingTopPopular(region);
             if(videos == null)
             {
                 await message.Channel.SendMessageAsync("Region not found");

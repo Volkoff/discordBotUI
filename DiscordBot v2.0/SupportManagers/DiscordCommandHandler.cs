@@ -11,29 +11,32 @@ namespace DiscordBot_v2._0
     internal class DiscordCommandHandler
     {
         UIDataUserInput data;
-        public DiscordCommandHandler(UIDataUserInput data)
+        TelegramApiManager telegram;
+        DiscordApiManager DiscordApiManager;
+        public DiscordCommandHandler(UIDataUserInput data,TelegramApiManager telegramApiManager,DiscordApiManager discordApiManager)
         {
             this.data = data;
+            this.telegram = telegramApiManager;
+            this.DiscordApiManager = discordApiManager;
         }
         
         public async Task HandleCommand(SocketMessage message)
         {
-            if (message.Author.IsBot ||
+            if (
                 !message.Content.StartsWith('!'))
             {
                 return;
             }
-            TelegramApiManager telegram = new TelegramApiManager();
 
             var emojiConfirmed = new Emoji("✔️");
-            await telegram.BotHandler(message.Author + ": " + message.Content);
+            await telegram.SendSimpleMessage(message.Author + ": " + message.Content);
             string[] commands = message.Content.Split(" ");
             var emojiError = new Emoji("❌");
             string commandString = commands[0]
                 .Substring(1)
                 .ToLower();
-            Command command = null;
-            YouTubeApiManager youtube = new YouTubeApiManager();
+            DiscordCommand command = null;
+            YouTubeApiManager youtube = new YouTubeApiManager(data.YouTubeApiKey);
             TwitchApiManager twitch = new TwitchApiManager(data.TwitchClientID, data.TwitchAccessToken);
             SpotifyApiManager spotify = new SpotifyApiManager();
 
@@ -56,7 +59,7 @@ namespace DiscordBot_v2._0
                         await message.AddReactionAsync(emojiError);
                         await message.Channel.SendMessageAsync(
                             "Invalid command use! Try using this: !ytpops (Code region)");
-                        await telegram.BotHandler(ex.ToString());
+                        await telegram.SendSimpleMessage(ex.ToString());
                         await message.Channel.SendFileAsync(
                             "region_codes.csv");
                     }
@@ -67,13 +70,13 @@ namespace DiscordBot_v2._0
                     {
                         await message.AddReactionAsync(emojiConfirmed);
                         string[] link = commands[1].Split("=");
-                        command = new VideoDetailsCommand(youtube, link[1], "bl");
+                        command = new VideoDetailsCommand(youtube, link[1]);
                     }
                     catch (IndexOutOfRangeException ex)
                     {
                         await message.AddReactionAsync(emojiError);
-                        await telegram.BotHandler("Invalid url provided");
-                        await telegram.BotHandler(ex.ToString());
+                        await telegram.SendSimpleMessage("Invalid url provided");
+                        await telegram.SendSimpleMessage(ex.ToString());
                         await message.Channel.SendMessageAsync("Invalid url, sorry mate!");
                     }
                     break;
@@ -83,13 +86,13 @@ namespace DiscordBot_v2._0
                     {
                         await message.AddReactionAsync(emojiConfirmed);
                         string[] channelLink = commands[1].Split('/');
-                        command = new ChannelInfoCommand(youtube, channelLink[4], "s");
+                        command = new ChannelInfoCommand(youtube, channelLink[4]);
                     }
                     catch (IndexOutOfRangeException ex)
                     {
                         await message.AddReactionAsync(emojiError);
-                        await telegram.BotHandler("Invalid url provided");
-                        await telegram.BotHandler(ex.ToString());
+                        await telegram.SendSimpleMessage("Invalid url provided");
+                        await telegram.SendSimpleMessage(ex.ToString());
                         await message.Channel.SendMessageAsync("Invalid url, sorry mate!");
                     }
                     break;
@@ -105,8 +108,8 @@ namespace DiscordBot_v2._0
                     catch (Exception ex)
                     {
                         await message.AddReactionAsync(emojiError);
-                        await telegram.BotHandler("Invalid url provided");
-                        await telegram.BotHandler(ex.ToString());
+                        await telegram.SendSimpleMessage("Invalid url provided");
+                        await telegram.SendSimpleMessage(ex.ToString());
                         await message.Channel.SendMessageAsync("Invalid url, sorry mate!");
                     }
                     break;
@@ -141,15 +144,15 @@ namespace DiscordBot_v2._0
                             name.Add(commands[1]);
                         }
 
-                        command = new GetStreamsByNameCommand(twitch, name);
+                        command = new GetStreamsByNameCommand(twitch,telegram, name);
 
                     }
                     catch (IndexOutOfRangeException e)
                     {
                         await message.Channel.SendMessageAsync(
                             "Invalid use of command! Try using !streamsbyname (GAME NAME HERE)");
-                        await telegram.BotHandler("No game name provided");
-                        await telegram.BotHandler(e.ToString());
+                        await telegram.SendSimpleMessage("No game name provided");
+                        await telegram.SendSimpleMessage(e.ToString());
                     }
                     break;
                 //TODO   
@@ -160,7 +163,9 @@ namespace DiscordBot_v2._0
                 case "help":
                     command = new HelpCommand();
                     break;
-
+                case "setadminchannel":
+                    command = new SetAdminChannelCommand(DiscordApiManager);
+                    break;
             }
             if (command != null)
             {

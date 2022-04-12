@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DiscordBot_v2._0
 {
-    internal class GetTopGamesCommand : Command
+    internal class GetTopGamesCommand : DiscordCommand
     {
         private TwitchApiManager twitchApiManager;
         /// <summary>

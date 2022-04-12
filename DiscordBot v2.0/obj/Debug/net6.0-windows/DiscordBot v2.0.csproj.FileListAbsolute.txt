@@ -52,3 +52,5 @@ E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBo
 E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\ref\DiscordBot v2.0.dll
 E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot_v2._0.Properties.Resources.resources
 E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot_v2._0.UploadConfig.resources
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot_v2._0.InputKeysForm.resources
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot_v2._0.Forms.Tutorial.resources

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DiscordBot_v2._0
 {
-    internal class HelloCommand : Command
+    internal class HelloCommand : DiscordCommand
     {
         public override async Task MessageReply(SocketMessage message)
         {

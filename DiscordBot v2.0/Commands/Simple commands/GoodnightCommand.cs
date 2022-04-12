@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DiscordBot_v2._0
 {
-    internal class GoodnightCommand : Command
+    internal class GoodnightCommand : DiscordCommand
     {
         public override async Task MessageReply(SocketMessage message)
         {

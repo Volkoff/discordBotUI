@@ -32,7 +32,6 @@
             this.SaveTwitchKeys = new System.Windows.Forms.Button();
             this.path = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.UploadYouTube = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DoneButton
@@ -47,11 +46,11 @@
             // 
             // SaveTwitchKeys
             // 
-            this.SaveTwitchKeys.Location = new System.Drawing.Point(31, 28);
+            this.SaveTwitchKeys.Location = new System.Drawing.Point(12, 59);
             this.SaveTwitchKeys.Name = "SaveTwitchKeys";
             this.SaveTwitchKeys.Size = new System.Drawing.Size(163, 67);
             this.SaveTwitchKeys.TabIndex = 1;
-            this.SaveTwitchKeys.Text = "Upload Twitch keys";
+            this.SaveTwitchKeys.Text = "Upload keys";
             this.SaveTwitchKeys.UseVisualStyleBackColor = true;
             this.SaveTwitchKeys.Click += new System.EventHandler(this.UploadTwitchKeys_Click);
             // 
@@ -67,22 +66,11 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // UploadYouTube
-            // 
-            this.UploadYouTube.Location = new System.Drawing.Point(31, 137);
-            this.UploadYouTube.Name = "UploadYouTube";
-            this.UploadYouTube.Size = new System.Drawing.Size(163, 67);
-            this.UploadYouTube.TabIndex = 3;
-            this.UploadYouTube.Text = "Upload YouTube keys";
-            this.UploadYouTube.UseVisualStyleBackColor = true;
-            this.UploadYouTube.Click += new System.EventHandler(this.UploadYouTube_Click);
-            // 
             // UploadConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.UploadYouTube);
             this.Controls.Add(this.path);
             this.Controls.Add(this.SaveTwitchKeys);
             this.Controls.Add(this.DoneButton);
@@ -97,7 +85,6 @@
         private Button DoneButton;
         private Button SaveTwitchKeys;
         private RichTextBox path;
-        private OpenFileDialog openFileDialog1;
-        private Button UploadYouTube;
+        private OpenFileDialog openFileDialog2;
     }
 }

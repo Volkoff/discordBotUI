@@ -6,14 +6,15 @@ using TwitchLib.Api.Helix.Models.Streams.GetStreams;
 
 namespace DiscordBot_v2._0
 {
-    internal class GetStreamsByNameCommand : Command
+    internal class GetStreamsByNameCommand : DiscordCommand
     {
         private TwitchApiManager twitchApiManager;
+        private TelegramApiManager telegramApiManager;
         private List<string> games;
-        TelegramApiManager telegram = new TelegramApiManager();
-        public GetStreamsByNameCommand(TwitchApiManager twitchApiManager,List<string> games)
+        public GetStreamsByNameCommand(TwitchApiManager twitchApiManager,TelegramApiManager telegramApiManager,List<string> games)
         {
             this.twitchApiManager = twitchApiManager;
+            this.telegramApiManager = telegramApiManager;
             this.games = games;
         }
         public override async Task MessageReply(SocketMessage message)
@@ -21,7 +22,7 @@ namespace DiscordBot_v2._0
             GetStreamsResponse gamesResp = await twitchApiManager.GetStreamsByGame(games);
             if (gamesResp == null)
             {
-                await telegram.BotHandler("Null message received, game name unknown");
+                await telegramApiManager.SendSimpleMessage("Null message received, game name unknown");
                 await message.Channel.SendMessageAsync("Something went wrong");
             }
             for (int i = 0; i < 5; i++)

@@ -37,17 +37,22 @@ namespace DiscordBot_v2._0
     }
     internal class YouTubeApiManager
     {
+        private string apiKey;
+        public YouTubeApiManager(string apiKey)
+        {
+            this.apiKey = apiKey;
+        }
         /// <summary>
         /// Finds popular videos in a region
         /// </summary>
         /// <param name="region">region which is alpha1-2 from the region_codes.csv</param>
         /// <returns></returns>
-        public async Task<IList<Video>> FindingTopPopular(string region,string apiKey)
+        public async Task<IList<Video>> FindingTopPopular(string region)
         {
 
             var service = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyBgNlxqFo2N3MizsKNJmD1VQhICHPcF0CM"
+                ApiKey = apiKey
             });
 
             var request = service.Videos.List("snippet");
@@ -78,11 +83,11 @@ namespace DiscordBot_v2._0
         /// </summary>
         /// <param name="videoID">Video id, made from video link</param>
         /// <returns></returns>
-        public async Task<YouTubeVideoDetails> FindDetailsOfVideo(string videoID, string apiKey)
+        public async Task<YouTubeVideoDetails> FindDetailsOfVideo(string videoID)
         {
             var service = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyBgNlxqFo2N3MizsKNJmD1VQhICHPcF0CM"
+                ApiKey = apiKey
                 
             }); ;
 
@@ -112,11 +117,11 @@ namespace DiscordBot_v2._0
         /// </summary>
         /// <param name="channelUserName">channel username</param>
         /// <returns></returns>
-        public async Task<YouTubeChannelDetails> FindChannelInfo(string channelUserName, string apiKey)
+        public async Task<YouTubeChannelDetails> FindChannelInfo(string channelUserName)
         {
             var service = new YouTubeService(new BaseClientService.Initializer() //setting up an API key for youtube 
             {
-                ApiKey = "AIzaSyBgNlxqFo2N3MizsKNJmD1VQhICHPcF0CM"
+                ApiKey = apiKey
             });
             var request = service.Channels.List("statistics");
             var requestSnippet = service.Channels.List("brandingSettings");
@@ -140,3 +145,5 @@ namespace DiscordBot_v2._0
 
     }
 }
+
+//"AIzaSyBgNlxqFo2N3MizsKNJmD1VQhICHPcF0CM"

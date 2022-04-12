@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
-            this.TxtTwitchClientID = new System.Windows.Forms.TextBox();
-            this.TxtYouTubeApiKey = new System.Windows.Forms.TextBox();
-            this.DiscordToken = new System.Windows.Forms.TextBox();
             this.EndButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.TxtTwitchAccessToken = new System.Windows.Forms.TextBox();
-            this.SaveKeysButton = new System.Windows.Forms.Button();
             this.UploadFormLoad = new System.Windows.Forms.Button();
+            this.InputKeysButton = new System.Windows.Forms.Button();
+            this.TxtTwitchAccessToken = new System.Windows.Forms.TextBox();
+            this.TxtDiscordToken = new System.Windows.Forms.TextBox();
+            this.TxtYouTubeApiKey = new System.Windows.Forms.TextBox();
+            this.TxtTwitchClientID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,30 +50,6 @@
             this.button1.Text = "Start bot";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // TxtTwitchClientID
-            // 
-            this.TxtTwitchClientID.Location = new System.Drawing.Point(12, 32);
-            this.TxtTwitchClientID.Name = "TxtTwitchClientID";
-            this.TxtTwitchClientID.Size = new System.Drawing.Size(138, 23);
-            this.TxtTwitchClientID.TabIndex = 1;
-            this.TxtTwitchClientID.Text = "Twitch Client ID";
-            // 
-            // TxtYouTubeApiKey
-            // 
-            this.TxtYouTubeApiKey.Location = new System.Drawing.Point(12, 81);
-            this.TxtYouTubeApiKey.Name = "TxtYouTubeApiKey";
-            this.TxtYouTubeApiKey.Size = new System.Drawing.Size(194, 23);
-            this.TxtYouTubeApiKey.TabIndex = 2;
-            this.TxtYouTubeApiKey.Text = "Insert YouTubeAPI key";
-            // 
-            // DiscordToken
-            // 
-            this.DiscordToken.Location = new System.Drawing.Point(12, 129);
-            this.DiscordToken.Name = "DiscordToken";
-            this.DiscordToken.Size = new System.Drawing.Size(499, 23);
-            this.DiscordToken.TabIndex = 3;
-            this.DiscordToken.Text = "Input api key here";
             // 
             // EndButton
             // 
@@ -95,27 +71,9 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // TxtTwitchAccessToken
-            // 
-            this.TxtTwitchAccessToken.Location = new System.Drawing.Point(211, 32);
-            this.TxtTwitchAccessToken.Name = "TxtTwitchAccessToken";
-            this.TxtTwitchAccessToken.Size = new System.Drawing.Size(138, 23);
-            this.TxtTwitchAccessToken.TabIndex = 9;
-            this.TxtTwitchAccessToken.Text = "Twitch Access Token";
-            // 
-            // SaveKeysButton
-            // 
-            this.SaveKeysButton.Location = new System.Drawing.Point(585, 55);
-            this.SaveKeysButton.Name = "SaveKeysButton";
-            this.SaveKeysButton.Size = new System.Drawing.Size(139, 72);
-            this.SaveKeysButton.TabIndex = 4;
-            this.SaveKeysButton.Text = "Save Keys";
-            this.SaveKeysButton.UseVisualStyleBackColor = true;
-            this.SaveKeysButton.Click += new System.EventHandler(this.button2_Click);
-            // 
             // UploadFormLoad
             // 
-            this.UploadFormLoad.Location = new System.Drawing.Point(585, 147);
+            this.UploadFormLoad.Location = new System.Drawing.Point(585, 12);
             this.UploadFormLoad.Name = "UploadFormLoad";
             this.UploadFormLoad.Size = new System.Drawing.Size(139, 72);
             this.UploadFormLoad.TabIndex = 10;
@@ -123,19 +81,61 @@
             this.UploadFormLoad.UseVisualStyleBackColor = true;
             this.UploadFormLoad.Click += new System.EventHandler(this.UploadFormLoad_Click);
             // 
+            // InputKeysButton
+            // 
+            this.InputKeysButton.Location = new System.Drawing.Point(585, 99);
+            this.InputKeysButton.Name = "InputKeysButton";
+            this.InputKeysButton.Size = new System.Drawing.Size(139, 72);
+            this.InputKeysButton.TabIndex = 11;
+            this.InputKeysButton.Text = "Save to Path Keys";
+            this.InputKeysButton.UseVisualStyleBackColor = true;
+            this.InputKeysButton.Click += new System.EventHandler(this.InputKeysButton_Click);
+            // 
+            // TxtTwitchAccessToken
+            // 
+            this.TxtTwitchAccessToken.Location = new System.Drawing.Point(211, 12);
+            this.TxtTwitchAccessToken.Name = "TxtTwitchAccessToken";
+            this.TxtTwitchAccessToken.Size = new System.Drawing.Size(138, 23);
+            this.TxtTwitchAccessToken.TabIndex = 17;
+            this.TxtTwitchAccessToken.Text = "Twitch Access Token";
+            // 
+            // TxtDiscordToken
+            // 
+            this.TxtDiscordToken.Location = new System.Drawing.Point(12, 109);
+            this.TxtDiscordToken.Name = "TxtDiscordToken";
+            this.TxtDiscordToken.Size = new System.Drawing.Size(499, 23);
+            this.TxtDiscordToken.TabIndex = 16;
+            this.TxtDiscordToken.Text = "Insert Discord Api Key";
+            // 
+            // TxtYouTubeApiKey
+            // 
+            this.TxtYouTubeApiKey.Location = new System.Drawing.Point(12, 61);
+            this.TxtYouTubeApiKey.Name = "TxtYouTubeApiKey";
+            this.TxtYouTubeApiKey.Size = new System.Drawing.Size(194, 23);
+            this.TxtYouTubeApiKey.TabIndex = 15;
+            this.TxtYouTubeApiKey.Text = "Insert YouTubeAPI key";
+            // 
+            // TxtTwitchClientID
+            // 
+            this.TxtTwitchClientID.Location = new System.Drawing.Point(12, 12);
+            this.TxtTwitchClientID.Name = "TxtTwitchClientID";
+            this.TxtTwitchClientID.Size = new System.Drawing.Size(138, 23);
+            this.TxtTwitchClientID.TabIndex = 14;
+            this.TxtTwitchClientID.Text = "Twitch Client ID";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.UploadFormLoad);
             this.Controls.Add(this.TxtTwitchAccessToken);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.EndButton);
-            this.Controls.Add(this.SaveKeysButton);
-            this.Controls.Add(this.DiscordToken);
+            this.Controls.Add(this.TxtDiscordToken);
             this.Controls.Add(this.TxtYouTubeApiKey);
             this.Controls.Add(this.TxtTwitchClientID);
+            this.Controls.Add(this.InputKeysButton);
+            this.Controls.Add(this.UploadFormLoad);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.EndButton);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Discord bot settings";
@@ -149,13 +149,13 @@
         #endregion
 
         private Button button1;
-        private TextBox TxtTwitchClientID;
-        private TextBox TxtYouTubeApiKey;
-        private TextBox DiscordToken;
         private Button EndButton;
         private PictureBox pictureBox1;
-        private TextBox TxtTwitchAccessToken;
-        private Button SaveKeysButton;
         private Button UploadFormLoad;
+        private Button InputKeysButton;
+        private TextBox TxtTwitchAccessToken;
+        private TextBox TxtDiscordToken;
+        private TextBox TxtYouTubeApiKey;
+        private TextBox TxtTwitchClientID;
     }
 }

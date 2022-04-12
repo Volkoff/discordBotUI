@@ -4,15 +4,18 @@ namespace DiscordBot_v2._0
     {
 
         public static bool wasUploaded = false;
+        TelegramApiManager telegramApiManager;
+        DiscordApiManager discordApiManager;
         public Form1()
         {
             InitializeComponent();
         }
         static UIDataUserInput uiData = new UIDataUserInput();
-        TelegramApiManager telegram = new TelegramApiManager();
+
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            discordApiManager = new DiscordApiManager();
+            telegramApiManager = new TelegramApiManager("5251072349:AAGdcgDDwPncF86wNI4nbrwvlAAfQ20ZXks",discordApiManager);
         }
         /// <summary>
         /// Start bot
@@ -21,26 +24,15 @@ namespace DiscordBot_v2._0
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            telegram.BotHandler("Bot has been started");
+            UpdateUiData();
+            telegramApiManager.SendSimpleMessage("Bot has been started");
 
             if (wasUploaded)
             {
                 UpdateUiDataFromImport();
             }
-            new Program().MainAsync(uiData);
+            new Program().MainAsync(uiData,telegramApiManager,discordApiManager);
             
-        }
-        /// <summary>
-        /// Save keys
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void button2_Click(object sender, EventArgs e)
-        {
-            UpdateUiData();
-            string uiDataJson = Newtonsoft.Json.JsonConvert.SerializeObject(uiData);
-            File.WriteAllTextAsync("api.json", uiDataJson);
         }
 
         public void UpdateUiData()
@@ -48,11 +40,14 @@ namespace DiscordBot_v2._0
             uiData.TwitchClientID = TxtTwitchClientID.Text;
             uiData.TwitchAccessToken = TxtTwitchAccessToken.Text;
             uiData.YouTubeApiKey = TxtYouTubeApiKey.Text;
+            uiData.DiscordApiKey = TxtDiscordToken.Text;
         }
         public void UpdateUiDataFromImport()
         {
-            uiData.TwitchClientID = UploadConfig.twID;
-            uiData.TwitchAccessToken = UploadConfig.twAT;
+            uiData.TwitchClientID = UploadConfig.twitchClientId;
+            uiData.TwitchAccessToken = UploadConfig.twitchAccessToken;
+            uiData.YouTubeApiKey = UploadConfig.YouTubeApiKey;
+            uiData.DiscordApiKey = UploadConfig.DiscordApiKey;
         }
 
         private void UploadFormLoad_Click(object sender, EventArgs e)
@@ -63,10 +58,15 @@ namespace DiscordBot_v2._0
 
         private void EndButton_Click(object sender, EventArgs e)
         {
-            telegram.BotHandler("Shutting down \n" +
+            telegramApiManager.SendSimpleMessage("Shutting down \n" +
                 "Closing application");
             Application.Exit();
         }
 
+        private void InputKeysButton_Click(object sender, EventArgs e)
+        {
+            InputKeysForm input = new InputKeysForm();
+            input.Show();
+        }
     }
 }

@@ -15,18 +15,44 @@ namespace DiscordBot_v2._0
 {
     public class TelegramApiManager
     {
+        DiscordApiManager discordApiManager;
+        TelegramBotClient _client;
+        CancellationTokenSource cts;
+        TimeSpan ts = new TimeSpan(30000000);
+        public TelegramApiManager(string apiKey,DiscordApiManager discordApiManager)
+        {
+            this.discordApiManager = discordApiManager;
+            this._client = new TelegramBotClient(apiKey);
+            this.cts = new CancellationTokenSource();
+            //var me = await botClient.GetMeAsync();
+            ListenToMessages();
+        }
+        private async void ListenToMessages()
+        {
+            int updateCount = 0; 
+            while (true)
+            {
+                var updateTask = _client.GetUpdatesAsync(cancellationToken: cts.Token);
+                await updateTask.WaitAsync(ts);
+                Update[] result = updateTask.Result;
+                if (result.Length > updateCount)
+                {
+                    TelegramCommandHandler telegramCommandHandler = new TelegramCommandHandler(discordApiManager);
+                    telegramCommandHandler.HandleMessage(result[updateCount].Message);
+                    updateCount++;
+                }
+            }
+        }
         /// <summary>
         /// Setting up the telegram bot
         /// </summary>
         /// <param name="message">Message sent to the bot</param>
         /// <returns></returns>
-        public async Task BotHandler(string message)
+        public async Task SendSimpleMessage(string message)
         {
-            var botClient = new TelegramBotClient("5251072349:AAGdcgDDwPncF86wNI4nbrwvlAAfQ20ZXks");
-           
-            using var cts = new CancellationTokenSource();
-            await SendMessage(botClient, cts.Token, message);
-            var me = await botClient.GetMeAsync();
+            
+            await SendMessage(_client, cts.Token, message);
+            
 
         }
         /// <summary>

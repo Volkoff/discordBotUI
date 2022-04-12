@@ -11,5 +11,6 @@ namespace DiscordBot_v2._0
         public string TwitchClientID;
         public string TwitchAccessToken;
         public string YouTubeApiKey;
+        public string DiscordApiKey;
     }
 }

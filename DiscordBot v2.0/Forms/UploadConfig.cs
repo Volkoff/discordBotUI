@@ -14,10 +14,11 @@ namespace DiscordBot_v2._0
 {
     public partial class UploadConfig : Form
     {
-        UIDataUserInput uiDataTwitch = new UIDataUserInput();
-        public static string twID;
-        public static string twAT;
-        private OpenFileDialog openFileDialog;
+        public static string twitchClientId;
+        public static string twitchAccessToken;
+        public static string YouTubeApiKey;
+        public static string DiscordApiKey;
+        private OpenFileDialog openFileDialog1;
         public UploadConfig()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace DiscordBot_v2._0
 
         private void Form2_Load(object sender,EventArgs e)
         {
-            openFileDialog = new OpenFileDialog();
+            openFileDialog1 = new OpenFileDialog();
         }
 
         private void UploadTwitchKeys_Click(object sender, EventArgs e)
@@ -36,8 +37,10 @@ namespace DiscordBot_v2._0
                 string fileContaints = File.ReadAllText(filePath);
                 dynamic jsonFile = JsonConvert.DeserializeObject(fileContaints);
                 path.Text = jsonFile["TwitchClientID"] + " " +  jsonFile["TwitchAccessToken"];
-                twID = jsonFile["TwitchClientID"];
-                twAT= jsonFile["TwitchAccessToken"];
+                twitchClientId = jsonFile["TwitchClientID"];
+                twitchAccessToken= jsonFile["TwitchAccessToken"];
+                YouTubeApiKey = jsonFile["YouTubeApiKey"];
+                DiscordApiKey = jsonFile["DiscordApiKey"];
                 Form1.wasUploaded = true;
             }
 
@@ -52,5 +55,6 @@ namespace DiscordBot_v2._0
         {
 
         }
+
     }
 }
