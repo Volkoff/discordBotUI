@@ -155,9 +155,15 @@ namespace DiscordBot_v2._0
                         await telegram.SendSimpleMessage(e.ToString());
                     }
                     break;
-                //TODO   
+                //find playlist on spotify 
                 case "playlist":
-                    await spotify.Something(message);
+                    command = new FindPlaylistsCommand(spotify, commands[1]);
+                    break;
+                case "artist":
+                    command = new FindArtistOnSpotifyCommand(spotify,commands[1]);
+                    break;
+                case "albums":
+                    await spotify.SearchArtistsAlbums("scarlxrd");
                     break;
                 //help command to output any command put to use 
                 case "help":

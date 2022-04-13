@@ -95,6 +95,18 @@
           "lib/net6.0/Discord.Net.WebSocket.dll": {}
         }
       },
+      "EmbedIO/3.4.3": {
+        "type": "package",
+        "dependencies": {
+          "Unosquare.Swan.Lite": "3.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/EmbedIO.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/EmbedIO.dll": {}
+        }
+      },
       "Google.Apis/1.57.0": {
         "type": "package",
         "dependencies": {
@@ -382,6 +394,19 @@
         },
         "runtime": {
           "lib/net5.0/SpotifyAPI.Web.dll": {}
+        }
+      },
+      "SpotifyAPI.Web.Auth/6.2.2": {
+        "type": "package",
+        "dependencies": {
+          "EmbedIO": "3.4.3",
+          "SpotifyAPI.Web": "6.2.2"
+        },
+        "compile": {
+          "lib/net5.0/SpotifyAPI.Web.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/SpotifyAPI.Web.Auth.dll": {}
         }
       },
       "System.Collections/4.3.0": {
@@ -1218,6 +1243,15 @@
         "runtime": {
           "lib/netstandard2.0/TwitchLib.PubSub.dll": {}
         }
+      },
+      "Unosquare.Swan.Lite/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Swan.Lite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Swan.Lite.dll": {}
+        }
       }
     }
   },
@@ -1355,6 +1389,19 @@
         "lib/netstandard2.0/Discord.Net.WebSocket.xml",
         "lib/netstandard2.1/Discord.Net.WebSocket.dll",
         "lib/netstandard2.1/Discord.Net.WebSocket.xml"
+      ]
+    },
+    "EmbedIO/3.4.3": {
+      "sha512": "YM6hpZNAfvbbixfG9T4lWDGfF0D/TqutbTROL4ogVcHKwPF1hp+xS3ABwd3cxxTxvDFkj/zZl57QgWuFA8Igxw==",
+      "type": "package",
+      "path": "embedio/3.4.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "embedio.3.4.3.nupkg.sha512",
+        "embedio.nuspec",
+        "lib/netstandard2.0/EmbedIO.dll",
+        "lib/netstandard2.0/EmbedIO.xml"
       ]
     },
     "Google.Apis/1.57.0": {
@@ -1878,6 +1925,23 @@
         "lib/netstandard2.1/SpotifyAPI.Web.xml",
         "spotifyapi.web.6.2.2.nupkg.sha512",
         "spotifyapi.web.nuspec"
+      ]
+    },
+    "SpotifyAPI.Web.Auth/6.2.2": {
+      "sha512": "6pMffNGZUbKKJmX7wOcaVrLSWms8/Hy5M/iC5K/jy+lgbpLALxCUHQXJkkeTJFUb/y+EAOJJIcHd1aGZGy2lyQ==",
+      "type": "package",
+      "path": "spotifyapi.web.auth/6.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/SpotifyAPI.Web.Auth.dll",
+        "lib/net5.0/SpotifyAPI.Web.Auth.xml",
+        "lib/netstandard2.0/SpotifyAPI.Web.Auth.dll",
+        "lib/netstandard2.0/SpotifyAPI.Web.Auth.xml",
+        "lib/netstandard2.1/SpotifyAPI.Web.Auth.dll",
+        "lib/netstandard2.1/SpotifyAPI.Web.Auth.xml",
+        "spotifyapi.web.auth.6.2.2.nupkg.sha512",
+        "spotifyapi.web.auth.nuspec"
       ]
     },
     "System.Collections/4.3.0": {
@@ -4063,6 +4127,21 @@
         "twitchlib.pubsub.3.2.3.nupkg.sha512",
         "twitchlib.pubsub.nuspec"
       ]
+    },
+    "Unosquare.Swan.Lite/3.0.0": {
+      "sha512": "noPwJJl1Q9uparXy1ogtkmyAPGNfSGb0BLT1292nFH1jdMKje6o2kvvrQUvF9Xklj+IoiAI0UzF6Aqxlvo10lw==",
+      "type": "package",
+      "path": "unosquare.swan.lite/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/Swan.Lite.dll",
+        "lib/net461/Swan.Lite.xml",
+        "lib/netstandard2.0/Swan.Lite.dll",
+        "lib/netstandard2.0/Swan.Lite.xml",
+        "unosquare.swan.lite.3.0.0.nupkg.sha512",
+        "unosquare.swan.lite.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -4072,6 +4151,7 @@
       "Google.Apis.YouTube.v3 >= 1.56.0.2630",
       "Newtonsoft.Json >= 13.0.1",
       "SpotifyAPI.Web >= 6.2.2",
+      "SpotifyAPI.Web.Auth >= 6.2.2",
       "Telegram.Bot >= 17.0.0",
       "TwitchLib >= 3.3.0"
     ]
@@ -4137,6 +4217,10 @@
             "version": "[13.0.1, )"
           },
           "SpotifyAPI.Web": {
+            "target": "Package",
+            "version": "[6.2.2, )"
+          },
+          "SpotifyAPI.Web.Auth": {
             "target": "Package",
             "version": "[6.2.2, )"
           },

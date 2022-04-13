@@ -10,9 +10,9 @@ namespace DiscordBot_v2._0
     {
         private SpotifyApiManager spotifyApiManager;
         private string nameOfSong;
-        public FindSongOnSpotifyCommand(SpotifyApiManager spotifyApi, string name)
+        public FindSongOnSpotifyCommand(SpotifyApiManager spotifyApiManager, string name)
         {
-            spotifyApiManager = spotifyApi;
+            this.spotifyApiManager = spotifyApiManager;
             nameOfSong = name;
         }
 
