@@ -38,6 +38,8 @@ namespace DiscordBot_v2._0
                 case "global":
                     command = new SendMessageToChannelCommand(discordApiManager);
                     break;
+                case "help":
+                    break;
             }
             await command?.MessageReply(message);
         }

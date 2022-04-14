@@ -21,7 +21,9 @@ namespace DiscordBot_v2._0
                 {"!channelinfo (channel link)", "Returns channel info from YouTube"},
                 {"!twitchchan (channel link)", "Returns channel info from Twitch"},
                 {"!twitchgames", "Returns top games streamed on Twitch"},
-                {"!streamsbyname", "Returns top 5 streams by a game name"}
+                {"!streamsbyname", "Returns top 5 streams by a game name"},
+                {"!playlist (playlist name)","returns public playlists on spotify" },
+                {"!artist (artist name)","returns artist information on spotify" }
 
 
             };

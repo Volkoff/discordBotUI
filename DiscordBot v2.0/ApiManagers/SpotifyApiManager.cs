@@ -59,25 +59,39 @@ namespace DiscordBot_v2._0
             return artistInfo;
         }
 
-        public async Task<string[]> SearchArtistsAlbums(string query)
+        public async Task<List<string[]>> SearchArtistsAlbums(string query)
         {
             await AccessToken();
-            SearchResponse searchArtistResponse = await spotifyInstance.Search.Item(new SearchRequest(SearchRequest.Types.Artist, query));
-            SearchResponse searchResponse = await spotifyInstance.Search.Item(new SearchRequest(SearchRequest.Types.Album, searchArtistResponse.Artists.Items[0].Id));
-            var totalAlbums = searchResponse.Albums.Total;
+            SearchResponse searchResponse = await spotifyInstance.Search.Item(new SearchRequest(SearchRequest.Types.Album, query));
+            
+            List<string[]> albums = new List<string[]>();
+            string totalAlbums = searchResponse.Albums.Total.ToString();
             for (int i = 0; i < 5; i++)
             {
+                List<string> restrictionsList = new List<string>();
                 string nameOfAlbum = searchResponse.Albums.Items[i].Name;
                 string releaseDate = searchResponse.Albums.Items[i].ReleaseDate;
                 string albumType = searchResponse.Albums.Items[i].AlbumType;
                 string albumGroup = searchResponse.Albums.Items[i].AlbumGroup;
+                if(albumGroup == null)
+                {
+                    albumGroup = "No album group";
+                }
                 string totalTracks = searchResponse.Albums.Items[i].TotalTracks.ToString();
-                var restrictions = searchResponse.Albums.Items[i].Restrictions;
-                List<string> restrictionsList = new List<string>();
-                restrictionsList = restrictions.Values.ToList();
+                
+                
+                string[] onePlaylist = {
+                nameOfAlbum,
+                releaseDate,
+                totalTracks,
+                albumType,
+                albumGroup,
+                totalTracks
+                };
 
+                albums.Add(onePlaylist);    
             }
-            return null;
+            return albums;
         }
 
         public async Task<List<string[]>> FindPlaylist(string query)
@@ -120,25 +134,7 @@ namespace DiscordBot_v2._0
             return allResults;
         }
 
-        public async Task<string> CreatePlaylist(string playlistName)
-        {
-            await AccessToken();
-            //await Authentication(LoginRequest.ResponseType.Code);
-            //PrivateUser currentUser = await spotifyInstance.UserProfile.;
-            string userID = "a0q8vwpqylhtu9v8mcnjugla3";
-            var playlist = await spotifyInstance.Playlists.Create(userID, new PlaylistCreateRequest("Poshelnahui maxim") 
-            { 
-                Collaborative = false,
-                Description = "na",
-                Public = true
-            });
-            string uri = playlist.Uri;
-            //Console.WriteLine(spotifyInstance.UserProfile.Current().Result.Email);
-            //playlist.Public = false;
-            //playlist.Collaborative = true;
-            //Console.WriteLine(playlist.Uri);
-            return null;
-        }
+        
 
         
     }
