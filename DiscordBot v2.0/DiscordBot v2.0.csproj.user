@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Forms\FileIsAlreadyCreated.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\InputKeysForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Succesful.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Tutorial.cs">

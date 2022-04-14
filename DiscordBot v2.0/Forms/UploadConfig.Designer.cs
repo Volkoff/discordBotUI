@@ -31,7 +31,7 @@
             this.DoneButton = new System.Windows.Forms.Button();
             this.SaveTwitchKeys = new System.Windows.Forms.Button();
             this.path = new System.Windows.Forms.RichTextBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.OpenFileDialogUpload = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // DoneButton
@@ -62,9 +62,9 @@
             this.path.TabIndex = 2;
             this.path.Text = "";
             // 
-            // openFileDialog1
+            // OpenFileDialogUpload
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.OpenFileDialogUpload.FileName = "OpenFileDialogUpload";
             // 
             // UploadConfig
             // 

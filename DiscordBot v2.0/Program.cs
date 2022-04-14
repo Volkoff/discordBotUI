@@ -39,8 +39,7 @@ namespace DiscordBot_v2._0
             _client = new DiscordSocketClient();
             _client.MessageReceived += new DiscordCommandHandler(_data,telegramApiManager,discordApiManager).HandleCommand;
             _client.Log += Log;
-            var token = File.ReadAllText("token.txt");
-            await _client.LoginAsync(TokenType.Bot, token);
+            await _client.LoginAsync(TokenType.Bot, uIData.DiscordApiKey);
             await _client.StartAsync();
             await Task.Delay(-1);
         }

@@ -15,15 +15,16 @@ namespace DiscordBot_v2._0
         {
             var commands = new Dictionary<string, string>()
             {
-                {"!hello", "returns a greeting to a user"},
-                {"!ytpops (region)", "Returns top videos in region on YouTube"},
-                {"!videodetails (Video link)", "Returns video details on YouTube"},
-                {"!channelinfo (channel link)", "Returns channel info from YouTube"},
-                {"!twitchchan (channel link)", "Returns channel info from Twitch"},
-                {"!twitchgames", "Returns top games streamed on Twitch"},
-                {"!streamsbyname", "Returns top 5 streams by a game name"},
-                {"!playlist (playlist name)","returns public playlists on spotify" },
-                {"!artist (artist name)","returns artist information on spotify" }
+                {"Command should start with exclamation mark (!)","Example: !ytpops cz(returns popular videos on youtube from Czech Republic" },
+                {"hello", "returns a greeting to a user"},
+                {"ytpops (region)", "Returns top videos in region on YouTube"},
+                {"videodetails (Video link)", "Returns video details on YouTube"},
+                {"channelinfo (channel link)", "Returns channel info from YouTube"},
+                {"twitchchan (channel link)", "Returns channel info from Twitch"},
+                {"twitchgames", "Returns top games streamed on Twitch"},
+                {"streamsbyname", "Returns top 5 streams by a game name"},
+                {"playlist (playlist name)","returns public playlists on spotify" },
+                {"artist (artist name)","returns artist information on spotify" }
 
 
             };

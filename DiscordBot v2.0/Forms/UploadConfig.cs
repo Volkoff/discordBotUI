@@ -18,7 +18,7 @@ namespace DiscordBot_v2._0
         public static string twitchAccessToken;
         public static string YouTubeApiKey;
         public static string DiscordApiKey;
-        private OpenFileDialog openFileDialog1;
+        private OpenFileDialog OpenFileDialogUpload;
         public UploadConfig()
         {
             InitializeComponent();
@@ -26,17 +26,25 @@ namespace DiscordBot_v2._0
 
         private void Form2_Load(object sender,EventArgs e)
         {
-            openFileDialog1 = new OpenFileDialog();
+            OpenFileDialogUpload = new OpenFileDialog();
         }
 
         private void UploadTwitchKeys_Click(object sender, EventArgs e)
         {
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            if(OpenFileDialogUpload.ShowDialog() == DialogResult.OK)
             {
-                string filePath = openFileDialog1.FileName;
+                string filePath = OpenFileDialogUpload.FileName;
+                if (!filePath.EndsWith(".json"))
+                {
+                    Forms.InvalidFile invalidFile = new Forms.InvalidFile();
+                    invalidFile.ShowDialog();
+                    return;
+                }
                 string fileContaints = File.ReadAllText(filePath);
                 dynamic jsonFile = JsonConvert.DeserializeObject(fileContaints);
-                path.Text = jsonFile["TwitchClientID"] + " " +  jsonFile["TwitchAccessToken"];
+                path.Text = "Twitch client ID: " + jsonFile["TwitchClientID"] + 
+                    " \n Twitch Access Token: " +  jsonFile["TwitchAccessToken"] + 
+                    " \n YouTube API key" + jsonFile["DiscordApiKey"];
                 twitchClientId = jsonFile["TwitchClientID"];
                 twitchAccessToken= jsonFile["TwitchAccessToken"];
                 YouTubeApiKey = jsonFile["YouTubeApiKey"];
@@ -51,10 +59,6 @@ namespace DiscordBot_v2._0
             this.Hide();
         }
 
-        private void UploadYouTube_Click(object sender, EventArgs e)
-        {
-
-        }
 
     }
 }

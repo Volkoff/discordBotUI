@@ -1,4 +1,5 @@
-﻿using Discord.WebSocket;
+﻿using Discord;
+using Discord.WebSocket;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,6 @@ namespace DiscordBot_v2._0
     public class DiscordApiManager
     {
         ISocketMessageChannel adminChannel;
-
         public async Task SendAdminMessage(string text)
         {
             if (adminChannel == null)
@@ -20,10 +20,16 @@ namespace DiscordBot_v2._0
 
             await adminChannel.SendMessageAsync(text);
         }
-
+        //608218806833381396
         public async Task SetAdminChannel(ISocketMessageChannel adminChannel)
         {
             this.adminChannel = adminChannel;
+        }
+
+        public async Task<string[]> ListAllUsers()
+        {
+            
+            return null;
         }
     }
 }

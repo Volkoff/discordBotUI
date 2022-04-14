@@ -47,7 +47,8 @@ namespace DiscordBot_v2._0
 
         private void OpenTutorialForm_Click(object sender, EventArgs e)
         {
-
+            Forms.Tutorial  tutorial = new Forms.Tutorial();
+            tutorial.ShowDialog();
         }
     }
 }

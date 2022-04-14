@@ -57,3 +57,5 @@ E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBo
 E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\EmbedIO.dll
 E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\SpotifyAPI.Web.Auth.dll
 E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\bin\Debug\net6.0-windows\Swan.Lite.dll
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot_v2._0.Forms.Succesful.resources
+E:\DiscordBot\DiscordBot v2.0\DiscordBot v2.0\obj\Debug\net6.0-windows\DiscordBot_v2._0.Forms.FileIsAlreadyCreated.resources
