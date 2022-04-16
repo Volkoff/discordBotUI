@@ -1,4 +1,5 @@
-﻿namespace DiscordBot_v2._0
+﻿using System.Windows.Forms;
+namespace DiscordBot_v2._0
 {
     partial class UploadConfig
     {
@@ -58,6 +59,7 @@
             // 
             this.path.Location = new System.Drawing.Point(288, 59);
             this.path.Name = "path";
+            this.path.ReadOnly = true;
             this.path.Size = new System.Drawing.Size(424, 96);
             this.path.TabIndex = 2;
             this.path.Text = "";

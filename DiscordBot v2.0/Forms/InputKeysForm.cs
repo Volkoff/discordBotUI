@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace DiscordBot_v2._0
     public partial class InputKeysForm : Form
     {
         private OpenFileDialog openFileDialogInputKeys;
-
+        string filePath;
         static UIDataUserInput uiData = new UIDataUserInput();
         public InputKeysForm()
         {
@@ -25,10 +26,14 @@ namespace DiscordBot_v2._0
             UpdateUiData();
             if (openFileDialogInputKeys.ShowDialog() == DialogResult.OK)
             {
-                string filePath = openFileDialogInputKeys.FileName;
-                string uiDataJson = Newtonsoft.Json.JsonConvert.SerializeObject(uiData);
-                File.WriteAllTextAsync(filePath, uiDataJson);
-
+                filePath = openFileDialogInputKeys.FileName;
+                if (!filePath.EndsWith(".json"))
+                {
+                    Forms.InvalidFile invalidFile = new Forms.InvalidFile();
+                    invalidFile.ShowDialog();
+                    return;
+                }
+                filePath = openFileDialogInputKeys.FileName;
             }
         }
 
@@ -38,6 +43,8 @@ namespace DiscordBot_v2._0
             uiData.TwitchAccessToken = TxtTwitchAccessToken.Text;
             uiData.YouTubeApiKey = TxtYouTubeApiKey.Text;
             uiData.DiscordApiKey = TxtDiscordApiKey.Text;
+            uiData.SpotifyClientId = TxtSpotifyClientID.Text;
+            uiData.SpotifyClientSecretKey = TxtSpotifyClientSecret.Text;
         }
 
         private void InputKeysForm_Load(object sender, EventArgs e)
@@ -49,6 +56,23 @@ namespace DiscordBot_v2._0
         {
             Forms.Tutorial  tutorial = new Forms.Tutorial();
             tutorial.ShowDialog();
+        }
+
+        private void DoneButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void SaveToPathButton_Click(object sender, EventArgs e)
+        {
+            if(filePath == null)
+            {
+                Forms.InvalidFile invalidFile = new Forms.InvalidFile();
+                invalidFile.ShowDialog();
+                return;
+            }
+            string uiDataJson = Newtonsoft.Json.JsonConvert.SerializeObject(uiData);
+            File.WriteAllTextAsync(filePath, uiDataJson);
         }
     }
 }

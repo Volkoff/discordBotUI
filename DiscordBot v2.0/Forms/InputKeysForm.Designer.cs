@@ -1,4 +1,5 @@
-﻿namespace DiscordBot_v2._0
+﻿using System.Windows.Forms;
+namespace DiscordBot_v2._0
 {
     partial class InputKeysForm
     {
@@ -36,6 +37,9 @@
             this.PathChooseButton = new System.Windows.Forms.Button();
             this.OpenFileDialogInputKeys = new System.Windows.Forms.OpenFileDialog();
             this.OpenTutorialForm = new System.Windows.Forms.Button();
+            this.DoneButton = new System.Windows.Forms.Button();
+            this.TxtSpotifyClientID = new System.Windows.Forms.TextBox();
+            this.TxtSpotifyClientSecret = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TxtTwitchAccessToken
@@ -48,9 +52,9 @@
             // 
             // TxtDiscordApiKey
             // 
-            this.TxtDiscordApiKey.Location = new System.Drawing.Point(12, 125);
+            this.TxtDiscordApiKey.Location = new System.Drawing.Point(12, 101);
             this.TxtDiscordApiKey.Name = "TxtDiscordApiKey";
-            this.TxtDiscordApiKey.Size = new System.Drawing.Size(390, 23);
+            this.TxtDiscordApiKey.Size = new System.Drawing.Size(194, 23);
             this.TxtDiscordApiKey.TabIndex = 12;
             this.TxtDiscordApiKey.Text = "Input DiscordAPI key";
             // 
@@ -72,16 +76,17 @@
             // 
             // SaveToPathButton
             // 
-            this.SaveToPathButton.Location = new System.Drawing.Point(604, 342);
+            this.SaveToPathButton.Location = new System.Drawing.Point(604, 125);
             this.SaveToPathButton.Name = "SaveToPathButton";
             this.SaveToPathButton.Size = new System.Drawing.Size(184, 96);
             this.SaveToPathButton.TabIndex = 14;
             this.SaveToPathButton.Text = "Save to path";
             this.SaveToPathButton.UseVisualStyleBackColor = true;
+            this.SaveToPathButton.Click += new System.EventHandler(this.SaveToPathButton_Click);
             // 
             // PathChooseButton
             // 
-            this.PathChooseButton.Location = new System.Drawing.Point(414, 342);
+            this.PathChooseButton.Location = new System.Drawing.Point(604, 12);
             this.PathChooseButton.Name = "PathChooseButton";
             this.PathChooseButton.Size = new System.Drawing.Size(184, 96);
             this.PathChooseButton.TabIndex = 15;
@@ -99,11 +104,40 @@
             this.OpenTutorialForm.UseVisualStyleBackColor = true;
             this.OpenTutorialForm.Click += new System.EventHandler(this.OpenTutorialForm_Click);
             // 
+            // DoneButton
+            // 
+            this.DoneButton.Location = new System.Drawing.Point(604, 342);
+            this.DoneButton.Name = "DoneButton";
+            this.DoneButton.Size = new System.Drawing.Size(184, 96);
+            this.DoneButton.TabIndex = 17;
+            this.DoneButton.Text = "Done";
+            this.DoneButton.UseVisualStyleBackColor = true;
+            this.DoneButton.Click += new System.EventHandler(this.DoneButton_Click);
+            // 
+            // TxtSpotifyClientID
+            // 
+            this.TxtSpotifyClientID.Location = new System.Drawing.Point(12, 142);
+            this.TxtSpotifyClientID.Name = "TxtSpotifyClientID";
+            this.TxtSpotifyClientID.Size = new System.Drawing.Size(194, 23);
+            this.TxtSpotifyClientID.TabIndex = 20;
+            this.TxtSpotifyClientID.Text = "Insert Spotify Client ID";
+            // 
+            // TxtSpotifyClientSecret
+            // 
+            this.TxtSpotifyClientSecret.Location = new System.Drawing.Point(212, 142);
+            this.TxtSpotifyClientSecret.Name = "TxtSpotifyClientSecret";
+            this.TxtSpotifyClientSecret.Size = new System.Drawing.Size(194, 23);
+            this.TxtSpotifyClientSecret.TabIndex = 21;
+            this.TxtSpotifyClientSecret.Text = "Insert Spotify Client Secret ";
+            // 
             // InputKeysForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TxtSpotifyClientSecret);
+            this.Controls.Add(this.TxtSpotifyClientID);
+            this.Controls.Add(this.DoneButton);
             this.Controls.Add(this.OpenTutorialForm);
             this.Controls.Add(this.PathChooseButton);
             this.Controls.Add(this.SaveToPathButton);
@@ -129,5 +163,8 @@
         private Button PathChooseButton;
         private OpenFileDialog OpenFileDialogInputKeys;
         private Button OpenTutorialForm;
+        private Button DoneButton;
+        private TextBox TxtSpotifyClientID;
+        private TextBox TxtSpotifyClientSecret;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,9 +48,14 @@ namespace DiscordBot_v2._0.Forms
                 fileIsAlreadyCreated.ShowDialog();
                 return;
             }
-            f1 = new FileStream(path, FileMode.CreateNew);
-            Forms.Succesful succesful = new Succesful();
-            succesful.ShowDialog();
+            else
+            {
+                f1 = new FileStream(path, FileMode.CreateNew);
+                Forms.Succesful succesful = new Succesful();
+                f1.Close();
+                succesful.ShowDialog();
+            }
+            
         }
     }
 }

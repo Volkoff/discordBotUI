@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace DiscordBot_v2._0.Forms
 {
-    public partial class InvalidFile : Form
+    public partial class TutorialTelegram : Form
     {
-        public InvalidFile()
+        public TutorialTelegram()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             this.Hide();
         }

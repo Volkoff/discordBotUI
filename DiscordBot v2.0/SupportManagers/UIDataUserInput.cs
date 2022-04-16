@@ -12,5 +12,7 @@ namespace DiscordBot_v2._0
         public string TwitchAccessToken;
         public string YouTubeApiKey;
         public string DiscordApiKey;
+        public string SpotifyClientId;
+        public string SpotifyClientSecretKey;
     }
 }

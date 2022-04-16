@@ -1,4 +1,5 @@
-﻿namespace DiscordBot_v2._0.Forms
+﻿using System.Windows.Forms;
+namespace DiscordBot_v2._0.Forms
 {
     partial class Succesful
     {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,16 +11,18 @@ using System.Windows.Forms;
 
 namespace DiscordBot_v2._0.Forms
 {
-    public partial class InvalidFile : Form
+    public partial class Tutorial_Video : Form
     {
-        public InvalidFile()
+        public Tutorial_Video()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
+
+       
     }
 }

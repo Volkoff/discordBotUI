@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace DiscordBot_v2._0
         public static string twitchAccessToken;
         public static string YouTubeApiKey;
         public static string DiscordApiKey;
+        public static string SpotifyClientID;
+        public static string SpotifyClientSecretID;
         private OpenFileDialog OpenFileDialogUpload;
         public UploadConfig()
         {
@@ -40,16 +43,28 @@ namespace DiscordBot_v2._0
                     invalidFile.ShowDialog();
                     return;
                 }
-                string fileContaints = File.ReadAllText(filePath);
-                dynamic jsonFile = JsonConvert.DeserializeObject(fileContaints);
-                path.Text = "Twitch client ID: " + jsonFile["TwitchClientID"] + 
-                    " \n Twitch Access Token: " +  jsonFile["TwitchAccessToken"] + 
-                    " \n YouTube API key" + jsonFile["DiscordApiKey"];
-                twitchClientId = jsonFile["TwitchClientID"];
-                twitchAccessToken= jsonFile["TwitchAccessToken"];
-                YouTubeApiKey = jsonFile["YouTubeApiKey"];
-                DiscordApiKey = jsonFile["DiscordApiKey"];
-                Form1.wasUploaded = true;
+                    string fileContaints = File.ReadAllText(filePath);
+                try
+                {
+                    dynamic jsonFile = JsonConvert.DeserializeObject(fileContaints);
+                    path.Text = "Twitch client ID: " + jsonFile["TwitchClientID"] + 
+                        " \n Twitch Access Token: " +  jsonFile["TwitchAccessToken"] + 
+                        " \n YouTube API key : " + jsonFile["DiscordApiKey"];
+                    twitchClientId = jsonFile["TwitchClientID"];
+                    twitchAccessToken= jsonFile["TwitchAccessToken"];
+                    YouTubeApiKey = jsonFile["YouTubeApiKey"];
+                    DiscordApiKey = jsonFile["DiscordApiKey"];
+                    SpotifyClientID = jsonFile["SpotifyClientId"];
+                    SpotifyClientSecretID = jsonFile["SpotifyClientSecretKey"];
+                BootingUpDiscord1.wasUploaded = true;
+                }
+                catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException ex)
+                {
+                    Forms.InvalidFile invalidFile = new Forms.InvalidFile();
+                    invalidFile.Text = "Invalid file or path provided";
+                    invalidFile.ShowDialog();
+                }
+                
             }
 
         }

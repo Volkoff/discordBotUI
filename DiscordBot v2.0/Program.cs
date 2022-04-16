@@ -21,7 +21,7 @@ namespace DiscordBot_v2._0
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new BootingUpDiscord1());
 
         }
 
